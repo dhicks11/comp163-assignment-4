@@ -38,3 +38,28 @@ else:
 
 print("Study Hours:", study_hours)
 print("Stress Level:", stress_level)
+
+study_options = ["Programming", "Math", "English", "History"]
+
+print("\nChoose a subject to study:")
+print("Options:", study_options)
+
+choice = input("Your choice:")
+
+if choice in study_options:
+    print("Great! Your choice is:", choice)
+
+    if choice == "Programming" or choice == "Math":
+        current_gpa = current_gpa + 0.3
+        social_points = social_points - 10
+        print(f"Your gpa now is {current_gpa}")
+        print(f"Your social points: {social_points}")
+    elif choice == "English" and current_gpa >= 2.5:
+        current_gpa = current_gpa + 0.1
+        social_points = social_points + 10
+    else:
+        stress_level  = stress_level + 15
+elif choice not in study_options:
+    print("Invalid choice, you lose social points & study hours :(")
+    study_hours = study_hours - 5
+    social_points = social_points - 5
